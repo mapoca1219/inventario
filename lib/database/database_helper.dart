@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:bcrypt/bcrypt.dart';
@@ -9,7 +11,7 @@ class DatabaseHelper {
 
   static Database? _database;
   static const _databaseName = "inventario.db";
-  static const _databaseVersion = 8; // ¡Versión incrementada!
+  static const _databaseVersion = 1;
 
   // Tablas y columnas
   static const tablaUsuarios = 'usuarios';
@@ -61,7 +63,7 @@ class DatabaseHelper {
       )
     ''');
 
-    // Crear tabla movimientos (¡ESTA ES LA CLAVE!)
+    // Crear tabla movimientos
     await db.execute('''
       CREATE TABLE $tablaMovimientos (
         $colId INTEGER PRIMARY KEY AUTOINCREMENT,
